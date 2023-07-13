@@ -9,7 +9,11 @@
     "lint": "eslint src/**/*.ts",
     "package": "ncc build --source-map --license licenses.txt",
     "test": "vitest --coverage",
-    "all": "npm run build && npm run lint && npm run package && npm test"
+    "test:ci": "npm run test -- run",
+    "test:ui": "npm run test -- --ui",
+    "test:watch": "npm run test -- --watch",
+    "test:all": "npm run test:ci && npm run lint",
+    "all": "npm run build && npm run lint && npm run package && npm run test:ci"
   },
   "repository": {
     "type": "git",
@@ -32,7 +36,6 @@
     "@vercel/ncc": "^0.36.1",
     "@vitest/coverage-v8": "^0.33.0",
     "@vitest/ui": "^0.33.0",
-    "eslint-plugin-github": "^4.9.0",
     "eslint": "^8.44.0",
     "js-yaml": "^4.1.0",
     "typescript": "^5.1.6",
